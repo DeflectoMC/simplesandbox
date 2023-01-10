@@ -19,7 +19,7 @@ function initCode() {
   
   renderer = new THREE.WebGLRenderer( { antialias: true } );
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setAnimationLoop( animation );
+  renderer.setAnimationLoop( animate );
   
   //Fix any issues with the canvas resolution & margins
   renderer.domElement.style = "position:absolute; width:100%; height:100%;"
