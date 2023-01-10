@@ -31,6 +31,8 @@ function initCode() {
     renderer.render( scene, camera );
     console.log("Rendering");
   }
+  
+  renderer.setAnimationLoop( animate );
 
 //Fix any issues with the canvas or aspect ratio upon resizing your browser window
   onresize = () => {
