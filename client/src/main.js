@@ -43,4 +43,3 @@ function initCode() {
     renderer.domElement.style = "position:absolute; width:100%; height:100%;"
   };
 }
-onload = initCode();
