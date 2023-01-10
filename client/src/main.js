@@ -43,3 +43,13 @@ function initCode() {
     renderer.domElement.style = "position:absolute; width:100%; height:100%;"
   };
 }
+
+function waitLoad() {
+  if (document.readyState != "complete") {
+    setTimeout(waitLoad, 100)
+  } else {
+    initCode();
+  }
+}
+
+setTimeout(waitLoad, 100)
