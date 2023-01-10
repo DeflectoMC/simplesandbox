@@ -31,7 +31,7 @@ function initCode() {
   // animation loop
 
   function animate( time ) {
-
+    renderer.render( scene, camera );
   }
 
 //Fix any issues with the canvas or aspect ratio upon resizing your browser window
