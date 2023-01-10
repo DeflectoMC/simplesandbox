@@ -40,10 +40,10 @@ Main.initCode = function() {
 
 //Fix any issues with the canvas or aspect ratio upon resizing your browser window
   window.onresize = (e) => {
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.domElement.style = "position:absolute; width:100%; height:100%;"
+    Main.renderer.setSize(window.innerWidth, window.innerHeight);
+    Main.camera.aspect = window.innerWidth/window.innerHeight;
+    Main.camera.updateProjectionMatrix();
+    Main.renderer.domElement.style = "position:absolute; width:100%; height:100%;"
   };
 }
 window.setTimeout(Main.initCode, 3000)
