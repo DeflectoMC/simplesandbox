@@ -17,7 +17,6 @@ function initCode() {
   
   renderer = new THREE.WebGLRenderer( { antialias: true } );
   renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setAnimationLoop( animate );
   
   //Fix any issues with the canvas resolution & margins
   renderer.domElement.style = "position:absolute; width:100%; height:100%;"
@@ -40,5 +39,4 @@ function initCode() {
     renderer.domElement.style = "position:absolute; width:100%; height:100%;"
   };
 }
-setTimeout(initCode, 100)
-//TODO: Change to a proper load after three.min.js is loaded
+//Run initCode() when page is fully loaded
