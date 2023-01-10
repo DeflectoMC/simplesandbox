@@ -1,46 +1,50 @@
 var Main = {};
 
-function initCode() {
+Main.initCode = function() {
 
   //Prevents any whitespace between the scene view and the rest of the webpage
   document.body.style = "margin:0; padding:0;";
 
-  camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 1000 );
+  const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 1000 );
   camera.position.z = 1.4;
 
-  scene = new THREE.Scene();
+  Main.scene = new THREE.Scene();
 
-  var texture = function(url) {
+  Main.texture = function ( url ) {
    return new THREE.TextureLoader().load(url);
   }
 
   //Sets the sky
-  scene.background = texture( "textures/sky.png" );
+  Main.scene.background = Main.texture( "textures/sky.png" );
   
-  renderer = new THREE.WebGLRenderer( { antialias: true } );
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  renderer.setAnimationLoop( animate );
+  Main.renderer = new THREE.WebGLRenderer( { antialias: true } );
+  Main.renderer.setSize( window.innerWidth, window.innerHeight );
   
   //Fix any issues with the canvas resolution & margins
-  renderer.domElement.style = "position:absolute; width:100%; height:100%;"
+  Main.renderer.domElement.style = "position:absolute; width:100%; height:100%;"
 
   //Adds canvas to screen
-  document.body.appendChild( renderer.domElement );
+  document.body.appendChild( Main.renderer.domElement );
 
 
   // animation loop
 
-   var animate = function( time ) {
-    renderer.render( scene, camera );
+  Main.animate = function ( time ) {
+    Main.renderer.render( Main.scene, Main.camera );
     console.log("Rendering");
   }
+  
+  //Begins rendering
+  Main.renderer.setAnimationLoop( Main.animate );
+  
 
 //Fix any issues with the canvas or aspect ratio upon resizing your browser window
-  onresize = (e) => {
+  window.onresize = (e) => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
     renderer.domElement.style = "position:absolute; width:100%; height:100%;"
   };
 }
-setTimeout(initCode, 100)
+window.setTimeout(Main.initCode, 3000)
 //TODO: Change to a proper load after three.min.js is loaded
