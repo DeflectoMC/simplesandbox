@@ -1,3 +1,5 @@
+
+
 function initCode() {
 
   //Prevents any whitespace between the scene view and the rest of the webpage
@@ -41,4 +43,4 @@ function initCode() {
     renderer.domElement.style = "position:absolute; width:100%; height:100%;"
   };
 }
-//Run initCode() when page is fully loaded
+onload = initCode();
