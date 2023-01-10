@@ -10,7 +10,7 @@ function initCode() {
 
   scene = new THREE.Scene();
 
-  function texture(url) {
+  var texture = function(url) {
    return new THREE.TextureLoader().load(url);
   }
 
@@ -30,7 +30,7 @@ function initCode() {
 
   // animation loop
 
-  function animate( time ) {
+   var animate = function( time ) {
     renderer.render( scene, camera );
     console.log("Rendering");
   }
